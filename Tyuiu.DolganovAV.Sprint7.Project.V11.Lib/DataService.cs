@@ -26,6 +26,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Lib
         }
 
 
+
         // ============= remove data
         // remove employee (id) самый простой способ, чтобы удалить сотрудника, при этом не допустив случайных ошибок
         // напр. удаление не того сотрудника из-за одинаковых фамилий
@@ -50,6 +51,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Lib
             }
             return false;
         }
+
 
 
         // ============= edit data
@@ -85,23 +87,83 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Lib
             return false;
         }
 
+
+
+
         // ============= search data
         // search employee data
-        public List<Employee> GetAllEmployees()
+        public List<Employee> GetAllEmployees() // получение всего списка работников
         {
             return employees;
         }
-
-        public Employee FindById(int id)
+        public Employee FindEmployeeById(int id) // поиск по id
         {
             return employees.FirstOrDefault(e => e.Id == id);
         }
-        public List<Employee> FindByFisrtName(string firstName)
+        public List<Employee> FindByFisrtName(string firstName) // поиск по фамилии
         {
             return employees.Where(e => e.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase)).ToList();
             // StringComparsion.Ordinal... - сравнение без учета регистра
         }
+        // search department data
+        public List<Department> GetAllDepartments()
+        {
+            return departments;
+        }
+        public Department FindDepartment(string name)
+        {
+            return departments.FirstOrDefault(d => d.Name == name);
+        }
 
 
+
+        // ============= filter
+        // filter department
+        public List<Employee> FilterByDepartment(string department)
+        {
+            return employees.Where(e => e.Department.Equals(department, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+
+
+
+        // stats - v processe
+        // avg salary, avg montly salary и тп
+
+
+
+        // csv files
+        // save
+        public void SaveEmpToFile(string filePath)
+        {
+            var lines = new List<string> { "Id,LastName,FirstName,MiddleName,Phone,BirthDate,ExperienceYears,Salary,Department" };
+            foreach (var emp in employees)
+            {
+                lines.Add($"{emp.Id},{emp.LastName},{emp.FirstName},{emp.MiddleName},{emp.Phone},{emp.BirthDate:yyyy-MM-dd},{emp.Salary},{emp.Department}");
+            }
+            File.WriteAllLines(filePath, lines);
+        }
+        // load
+        public void LoadEmpFromFile(string filePath)
+        {
+            employees.Clear();
+            var lines = File.ReadAllLines(filePath);
+
+            foreach (var line in lines)
+            {
+                var parts = line.Split(',');
+                if (parts.Length > 9) break;
+                employees.Add(new Employee {
+                    Id = int.Parse(parts[0]),
+                    LastName = parts[1],
+                    FirstName = parts[2],
+                    MiddleName = parts[3],
+                    Phone = parts[4],
+                    BirthDate = DateTime.Parse(parts[5]),
+                    ExperienceYears = int.Parse(parts[6]),
+                    Salary = decimal.Parse(parts[7]),
+                    Department = parts[8]
+                });
+            }
+        }
     }
 }
