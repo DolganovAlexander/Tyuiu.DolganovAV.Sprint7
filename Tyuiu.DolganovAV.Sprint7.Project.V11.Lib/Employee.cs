@@ -12,7 +12,6 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Lib
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
-        public string Phone { get; set; }
         public DateTime BirthDate { get; set; }
         public int ExperienceYears { get; set; }
         public decimal Salary { get; set; }

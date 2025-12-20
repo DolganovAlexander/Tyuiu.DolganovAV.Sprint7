@@ -5,34 +5,21 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Lib
     public class DataService
     {
         private List<Employee> employees;
-        private List<Department> departments;
 
         public DataService()
         {
             employees = new List<Employee>();
-            departments = new List<Department>();
         }
-
-        // ============= add data
-        // employee add
-        public void AddEmployee(Employee employee)
+        // ============= ADD/REMOVE EMPLOYEE
+        public void AddEmployee(Employee employee) // добавление сотрудника
         {
             employees.Add(employee);
         }
-        // department add
-        public void AddDepartment(Department department)
+        public bool RemoveEmployee(int id) // удаление сотрудника
         {
-            departments.Add(department);
-        }
-
-
-
-        // ============= remove data
-        // remove employee (id) самый простой способ, чтобы удалить сотрудника, при этом не допустив случайных ошибок
-        // напр. удаление не того сотрудника из-за одинаковых фамилий
-        public bool RemoveEmployee(int id)
-        {
-            var emp = employees.FirstOrDefault(e => e.Id == id);
+            // remove employee (id) самый простой способ, чтобы удалить сотрудника, при этом не допустив случайных ошибок
+            // напр. удаление не того сотрудника из-за одинаковых фамилий
+            var emp = employees.FirstOrDefault(e => e.Id == id); 
             if (emp != null)
             {
                 employees.Remove(emp); 
@@ -40,23 +27,11 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Lib
             }
             return false;
         }
-        // remove department (name) тож самый простой способ, чтобы ниче не повторялось меби)
-        public bool RemoveDepartment(string name)
-        {
-            var dmt = departments.FirstOrDefault(d => d.Name == name);
-            if (dmt != null)
-            {
-                departments.Remove(dmt); 
-                return true;
-            }
-            return false;
-        }
 
 
 
-        // ============= edit data
-        // edit employee data / update employee
-        public bool UpdateEmployee(int id, Employee updatedEmployee)
+        // ============= EDIT DATA?
+        public bool UpdateEmployee(int id, Employee updatedEmployee) // обновляет/изменяет данные сотрудника
         {
             var emp = employees.FirstOrDefault(e => e.Id == id);
             if (emp != null)
@@ -64,7 +39,6 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Lib
                 emp.LastName = updatedEmployee.LastName;
                 emp.FirstName = updatedEmployee.FirstName;
                 emp.MiddleName = updatedEmployee.MiddleName;
-                emp.Phone = updatedEmployee.Phone;
                 emp.BirthDate = updatedEmployee.BirthDate;
                 emp.ExperienceYears = updatedEmployee.ExperienceYears;
                 emp.Salary = updatedEmployee.Salary;
@@ -73,25 +47,10 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Lib
             }
             return false;
         }
-        // edit department data / update department
-        public bool UpdateDepartment(string name, Department updatedDepartment)
-        {
-            var dmt = departments.FirstOrDefault(d => d.Name == name);
-            if (dmt != null)
-            {
-                dmt.StaffCount = updatedDepartment.StaffCount;
-                dmt.MonthlyPayroll = updatedDepartment.MonthlyPayroll;
-                dmt.YearlyPayroll = updatedDepartment.YearlyPayroll;
-                return true;
-            }
-            return false;
-        }
 
 
 
-
-        // ============= search data
-        // search employee data
+        // ============= SEARCH DATA
         public List<Employee> GetAllEmployees() // получение всего списка работников
         {
             return employees;
@@ -105,65 +64,95 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Lib
             return employees.Where(e => e.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase)).ToList();
             // StringComparsion.Ordinal... - сравнение без учета регистра
         }
-        // search department data
-        public List<Department> GetAllDepartments()
+        public List<Employee> FindByDepartment(string departmentName) // поиск по отделу
         {
-            return departments;
-        }
-        public Department FindDepartment(string name)
-        {
-            return departments.FirstOrDefault(d => d.Name == name);
+            return employees.Where(e => e.Department.Equals(departmentName, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
 
 
-        // ============= filter
-        // filter department
-        public List<Employee> FilterByDepartment(string department)
+        // ============= CSV FILES
+        public void SaveEmpToFile(string filePath) //сохраниние
         {
-            return employees.Where(e => e.Department.Equals(department, StringComparison.OrdinalIgnoreCase)).ToList();
-        }
-
-
-
-        // stats - v processe
-        // avg salary, avg montly salary и тп
-
-
-
-        // csv files
-        // save
-        public void SaveEmpToFile(string filePath)
-        {
-            var lines = new List<string> { "Id,LastName,FirstName,MiddleName,Phone,BirthDate,ExperienceYears,Salary,Department" };
+            var lines = new List<string> { "Id,LastName,FirstName,MiddleName,BirthDate,ExperienceYears,Salary,Department" };
             foreach (var emp in employees)
             {
-                lines.Add($"{emp.Id},{emp.LastName},{emp.FirstName},{emp.MiddleName},{emp.Phone},{emp.BirthDate:yyyy-MM-dd},{emp.Salary},{emp.Department}");
+                lines.Add($"{emp.Id},{emp.LastName},{emp.FirstName},{emp.MiddleName},{emp.BirthDate:yyyy-MM-dd},{emp.ExperienceYears},{emp.Salary},{emp.Department}");
             }
             File.WriteAllLines(filePath, lines);
         }
-        // load
-        public void LoadEmpFromFile(string filePath)
+
+        public void LoadEmpFromFile(string filePath) // загрузка из файла
         {
             employees.Clear();
-            var lines = File.ReadAllLines(filePath);
+
+            var lines = File.ReadAllLines(filePath).Skip(1);
 
             foreach (var line in lines)
             {
                 var parts = line.Split(',');
-                if (parts.Length > 9) break;
+                if (parts.Length < 8) continue;
                 employees.Add(new Employee {
                     Id = int.Parse(parts[0]),
                     LastName = parts[1],
                     FirstName = parts[2],
                     MiddleName = parts[3],
-                    Phone = parts[4],
-                    BirthDate = DateTime.Parse(parts[5]),
-                    ExperienceYears = int.Parse(parts[6]),
-                    Salary = decimal.Parse(parts[7]),
-                    Department = parts[8]
+                    BirthDate = DateTime.Parse(parts[4]),
+                    ExperienceYears = int.Parse(parts[5]),
+                    Salary = decimal.Parse(parts[6]),
+                    Department = parts[7]
                 });
             }
+        }
+
+
+        // ============= FILTERS
+        public List<Employee> FilterByDepartment(string department) // фильтр по отделу
+        {
+            return employees.Where(e => e.Department.Equals(department, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+        public List<Employee> FilterBySalary(decimal minSalary, decimal maxSalary) // фильт по диапазону зарплат
+        {
+            return employees.Where(e => e.Salary >= minSalary && e.Salary <= maxSalary).ToList();
+        }
+        public List<Employee> FilterBySalaryAscending() // фтльр по убываниб зарплат
+        {
+            return employees.OrderBy(e => e.Salary).ToList();
+        }
+        public List<Employee> FilterBySalaryDescending() // фильтр по возрастанию зарплат
+        {
+            return employees.OrderByDescending(e => e.Salary).ToList();
+        }
+        public List<Employee> FilterByExperipenceAscending() // фильтр по убыванию стажа
+        {
+            return employees.OrderBy(e => e.ExperienceYears).ToList();
+        }
+        public List<Employee> FilterByExperienceDescending() // фильтр по возрастанию стажа
+        {
+            return employees.OrderByDescending(e => e.ExperienceYears).ToList();
+        }
+        public List<Employee> FilterByLastNameAscending() // по возрастанию фамилий (от а до я)
+        {
+            return employees.OrderBy(e => e.LastName).ToList();
+        }
+        public List<Employee> FilterByLastNameDescending() // фильтр по убыанию фамилий (от я до а)
+        {
+            return employees.OrderByDescending(e => e.LastName).ToList();
+        }
+
+        // ============= STATISTIC
+        public decimal GetTotalSalary() // общая сумма зарплат
+        {
+            return employees.Sum(e => e.Salary);
+        }
+        public decimal GetAvgSalary() // сердняя зп
+        {
+            if (employees.Count == 0) return 0;
+            return employees.Average(e => e.Salary);
+        }
+        public int GetEmployeeCount() // количество сотрудников
+        {
+            return employees.Count();
         }
     }
 }

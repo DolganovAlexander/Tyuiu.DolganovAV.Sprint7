@@ -6,5 +6,10 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
         {
             InitializeComponent();
         }
+
+        private void InitializeComponent()
+        {
+
+        }
     }
 }
