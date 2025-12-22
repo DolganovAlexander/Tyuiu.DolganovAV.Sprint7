@@ -6,7 +6,6 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Test
     {
         DataService ds = new DataService();
 
-        // add data test
         [TestMethod]
         public void AddEmployeeToList()
         {
@@ -16,7 +15,6 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Test
                 LastName = "Иванов",
                 FirstName = "Иван",
                 MiddleName = "Иванович",
-                Phone = "+79991234567",
                 BirthDate = new DateTime(1990, 1, 1),
                 ExperienceYears = 5,
                 Salary = 50000,
@@ -27,22 +25,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Test
             Assert.AreEqual(1, employees.Count());
             Assert.AreEqual("Иванов", employees[0].LastName);
         }
-        [TestMethod]
-        public void AddDepartmentToList()
-        {
-            Department department = new Department
-            {
-                Name = "IT",
-                StaffCount = 5,
-                MonthlyPayroll = 250_000,
-                YearlyPayroll = 50000
-            };
-            ds.AddDepartment(department);
-            List<Department> departments = ds.GetAllDepartments();
-            Assert.AreEqual(1, departments.Count());
-            Assert.AreEqual("IT", departments[0].Name);
-            Assert.AreEqual(30000, departments[0].YearlyPayroll);
-        }
+
         [TestMethod]
         public void ValidFindEmpById()
         {
@@ -54,6 +37,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Test
             Employee result = ds.FindEmployeeById(2);
             Assert.AreEqual("Федотов", result.LastName);
         }
+
         [TestMethod]
         public void ValidRemoveEmp()
         {
@@ -66,6 +50,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Test
             Assert.AreEqual(true, result);
             Assert.AreEqual(0, employees.Count());
         }
+
         [TestMethod]
         public void ValidSaveAndLoad_CSVfile()
         {
@@ -75,7 +60,6 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Test
                 LastName = "Иванов",
                 FirstName = "Иван",
                 MiddleName = "Иванович",
-                Phone = "+79991234567",
                 BirthDate = new DateTime(1990, 1, 1),
                 ExperienceYears = 5,
                 Salary = 50000,

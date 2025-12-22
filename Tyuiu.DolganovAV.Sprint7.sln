@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyuiu.DolganovAV.Sprint7.Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyuiu.DolganovAV.Sprint7.Project.V11.Test", "Tyuiu.DolganovAV.Sprint7.Project.V11.Test\Tyuiu.DolganovAV.Sprint7.Project.V11.Test.csproj", "{8B4759F4-1914-4607-8B2A-2E2DBE9C9CE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyuiu.DolganovAV.Sprint7.Project.V11", "Tyuiu.DolganovAV.Sprint7.Project.V11\Tyuiu.DolganovAV.Sprint7.Project.V11.csproj", "{DF36C85E-7863-4ADC-B8F2-B808331F68D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyuiu.DolganovAV.Sprint7.Project.V11", "Tyuiu.DolganovAV.Sprint7.Project.V11\Tyuiu.DolganovAV.Sprint7.Project.V11.csproj", "{08B67B7A-203E-4073-9BB6-05AE1EB369B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{8B4759F4-1914-4607-8B2A-2E2DBE9C9CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B4759F4-1914-4607-8B2A-2E2DBE9C9CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B4759F4-1914-4607-8B2A-2E2DBE9C9CE5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF36C85E-7863-4ADC-B8F2-B808331F68D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF36C85E-7863-4ADC-B8F2-B808331F68D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF36C85E-7863-4ADC-B8F2-B808331F68D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF36C85E-7863-4ADC-B8F2-B808331F68D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08B67B7A-203E-4073-9BB6-05AE1EB369B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08B67B7A-203E-4073-9BB6-05AE1EB369B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08B67B7A-203E-4073-9BB6-05AE1EB369B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08B67B7A-203E-4073-9BB6-05AE1EB369B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

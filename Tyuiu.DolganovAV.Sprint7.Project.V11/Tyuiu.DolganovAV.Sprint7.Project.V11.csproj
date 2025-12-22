@@ -8,4 +8,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="WinForms.DataVisualization" Version="1.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tyuiu.DolganovAV.Sprint7.Project.V11.Lib\Tyuiu.DolganovAV.Sprint7.Project.V11.Lib.csproj" />
+  </ItemGroup>
+
 </Project>
