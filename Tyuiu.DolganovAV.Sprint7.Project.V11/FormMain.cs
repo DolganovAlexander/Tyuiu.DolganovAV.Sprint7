@@ -1,4 +1,4 @@
-using System.Data;
+п»їusing System.Data;
 using System.Text;
 using Tyuiu.DolganovAV.Sprint7.Project.V11.Lib;
 namespace Tyuiu.DolganovAV.Sprint7.Project.V11
@@ -14,8 +14,8 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
         public FormMain()
         {
             InitializeComponent();
-            openFileDialog_DAV.Filter = "CSV Файлы (*.csv)|*.csv|Все файлы (*.*)|*.*";
-            saveFileDialog_DAV.Filter = "CSV Файлы (*.csv)|*.csv|Все файлы (*.*)|*.*";
+            openFileDialog_DAV.Filter = "CSV Р¤Р°Р№Р»С‹ (*.csv)|*.csv|Р’СЃРµ С„Р°Р№Р»С‹ (*.*)|*.*";
+            saveFileDialog_DAV.Filter = "CSV Р¤Р°Р№Р»С‹ (*.csv)|*.csv|Р’СЃРµ С„Р°Р№Р»С‹ (*.*)|*.*";
         }
 
         private int GenNewId()
@@ -37,20 +37,20 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                     dataGridViewEmployee_DAV.DataSource = employees;
 
 
-                    dataGridViewEmployee_DAV.Columns["Id"].HeaderText = "ID";
-                    dataGridViewEmployee_DAV.Columns["LastName"].HeaderText = "Фамилия";
-                    dataGridViewEmployee_DAV.Columns["FirstName"].HeaderText = "Имя";
-                    dataGridViewEmployee_DAV.Columns["MiddleName"].HeaderText = "Отчество";
-                    dataGridViewEmployee_DAV.Columns["BirthDate"].HeaderText = "Дата рождения";
-                    dataGridViewEmployee_DAV.Columns["ExperienceYears"].HeaderText = "Стаж";
-                    dataGridViewEmployee_DAV.Columns["Salary"].HeaderText = "Зарплата";
-                    dataGridViewEmployee_DAV.Columns["Department"].HeaderText = "Отдел";
+                    dataGridViewEmployee_DAV.Columns["Id"].HeaderText = "РўР°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ (Id)";
+                    dataGridViewEmployee_DAV.Columns["LastName"].HeaderText = "Р¤Р°РјРёР»РёСЏ";
+                    dataGridViewEmployee_DAV.Columns["FirstName"].HeaderText = "РРјСЏ";
+                    dataGridViewEmployee_DAV.Columns["MiddleName"].HeaderText = "РћС‚С‡РµСЃС‚РІРѕ";
+                    dataGridViewEmployee_DAV.Columns["BirthDate"].HeaderText = "Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ";
+                    dataGridViewEmployee_DAV.Columns["ExperienceYears"].HeaderText = "РЎС‚Р°Р¶";
+                    dataGridViewEmployee_DAV.Columns["Salary"].HeaderText = "РћРєР»Р°Рґ";
+                    dataGridViewEmployee_DAV.Columns["Department"].HeaderText = "РћС‚РґРµР»";
 
                     dataGridViewEmployee_DAV.AllowUserToOrderColumns = true;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Ошибка при загрузке файла: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"РћС€РёР±РєР° РїСЂРё Р·Р°РіСЂСѓР·РєРµ С„Р°Р№Р»Р°: {ex.Message}", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -62,11 +62,11 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 try
                 {
                     ds.SaveEmpToFile(saveFileDialog_DAV.FileName);
-                    MessageBox.Show("Данные успешно сохранены!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Р”Р°РЅРЅС‹Рµ СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅС‹!", "РЈСЃРїРµС…", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Ошибка при загрузке файла: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"РћС€РёР±РєР° РїСЂРё Р·Р°РіСЂСѓР·РєРµ С„Р°Р№Р»Р°: {ex.Message}", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -77,14 +77,14 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
 
             if (string.IsNullOrEmpty(searchText))
             {
-                MessageBox.Show("Введите текст для поиска!", "", MessageBoxButtons.OK);
+                MessageBox.Show("Р’РІРµРґРёС‚Рµ С‚РµРєСЃС‚ РґР»СЏ РїРѕРёСЃРєР°!", "", MessageBoxButtons.OK);
                 dataGridViewEmployee_DAV.DataSource = employees;
                 return;
             }
 
             if (comboBoxSearchType_DAV.SelectedItem == null)
             {
-                MessageBox.Show("Выберите режим поиска!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Р’С‹Р±РµСЂРёС‚Рµ СЂРµР¶РёРј РїРѕРёСЃРєР°!", "РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -92,7 +92,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
             List<Employee> results = new List<Employee>();
             switch (searchMode)
             {
-                case "По ID":
+                case "РџРѕ ID":
                     try
                     {
                         int id = int.Parse(searchText);
@@ -101,13 +101,13 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                     }
                     catch
                     {
-                        MessageBox.Show("Введите конкретный ID");
+                        MessageBox.Show("Р’РІРµРґРёС‚Рµ РєРѕРЅРєСЂРµС‚РЅС‹Р№ С‚Р°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ (Id)");
                     }
                     break;
-                case "По фамилии":
+                case "РџРѕ С„Р°РјРёР»РёРё":
                     results = ds.FindByFisrtName(searchText);
                     break;
-                case "По отделу":
+                case "РџРѕ РѕС‚РґРµР»Сѓ":
                     results = ds.FindByDepartment(searchText);
                     break;
             }
@@ -130,11 +130,11 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                     dataGridViewEmployee_DAV.DataSource = null;
                     dataGridViewEmployee_DAV.DataSource = employees;
 
-                    MessageBox.Show("Сотрудник успешно добавлен!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("РЎРѕС‚СЂСѓРґРЅРёРє СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅ!", "РЈСЃРїРµС…", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Ошибка при добавлении сотрудника: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"РћС€РёР±РєР° РїСЂРё РґРѕР±Р°РІР»РµРЅРёРё СЃРѕС‚СЂСѓРґРЅРёРєР°: {ex.Message}", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -143,7 +143,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
         {
             if (dataGridViewEmployee_DAV.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Выберите сотрудника для редактирования", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Р’С‹Р±РµСЂРёС‚Рµ СЃРѕС‚СЂСѓРґРЅРёРєР° РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ", "РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             try
@@ -152,7 +152,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 var idCell = selectedRow.Cells["Id"];
                 if (idCell == null)
                 {
-                    MessageBox.Show("Ошибка: не удалось получить Id сотрудника", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("РћС€РёР±РєР°: РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ РўР°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ (Id) СЃРѕС‚СЂСѓРґРЅРёРєР°", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -160,7 +160,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 var employee = ds.FindEmployeeById(employeeId);
                 if (employee == null)
                 {
-                    MessageBox.Show("Сотрудник не найден", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("РЎРѕС‚СЂСѓРґРЅРёРє РЅРµ РЅР°Р№РґРµРЅ", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 using (FormEditEmployee editForm = new FormEditEmployee(employee))
@@ -173,18 +173,18 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                             dataGridViewEmployee_DAV.DataSource = null;
                             dataGridViewEmployee_DAV.DataSource = employees;
 
-                            MessageBox.Show("Данные сотрудника обновлены", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Р”Р°РЅРЅС‹Рµ СЃРѕС‚СЂСѓРґРЅРёРєР° РѕР±РЅРѕРІР»РµРЅС‹", "РЈСЃРїРµС…", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("Ошибка при обновлении данных", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("РћС€РёР±РєР° РїСЂРё РѕР±РЅРѕРІР»РµРЅРёРё РґР°РЅРЅС‹С…", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при редактировании сотрудника: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"РћС€РёР±РєР° РїСЂРё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРё СЃРѕС‚СЂСѓРґРЅРёРєР°: {ex.Message}", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -192,7 +192,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
         {
             if (dataGridViewEmployee_DAV.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Выберите сотрудника для редактирования", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Р’С‹Р±РµСЂРёС‚Рµ СЃРѕС‚СЂСѓРґРЅРёРєР° РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ", "РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             try
@@ -202,7 +202,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
 
                 if (idCell == null)
                 {
-                    MessageBox.Show("Ошибка: не удалось получить Id сотрудника", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("РћС€РёР±РєР°: РЅРµ СѓРґР°Р»РѕСЃСЊ РїРѕР»СѓС‡РёС‚СЊ С‚Р°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ (Id) СЃРѕС‚СЂСѓРґРЅРёРєР°", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -211,7 +211,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 var employee = ds.FindEmployeeById(employeeId);
                 if (employee == null)
                 {
-                    MessageBox.Show("Сотрудник не найден", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("РЎРѕС‚СЂСѓРґРЅРёРє РЅРµ РЅР°Р№РґРµРЅ", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 using (FormRemoveEmployee removeForm = new FormRemoveEmployee(employee))
@@ -224,18 +224,18 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                             dataGridViewEmployee_DAV.DataSource = null;
                             dataGridViewEmployee_DAV.DataSource = employees;
 
-                            MessageBox.Show("Сотрудник успешно удален", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("РЎРѕС‚СЂСѓРґРЅРёРє СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅ", "РЈСЃРїРµС…", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("Ошибка при удалении сотрудника", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("РћС€РёР±РєР° РїСЂРё СѓРґР°Р»РµРЅРёРё СЃРѕС‚СЂСѓРґРЅРёРєР°", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при удалении сотрудника: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"РћС€РёР±РєР° РїСЂРё СѓРґР°Р»РµРЅРёРё СЃРѕС‚СЂСѓРґРЅРёРєР°: {ex.Message}", "РћС€РёР±РєР°", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -247,24 +247,24 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
 
                 if (employees.Count == 0)
                 {
-                    textBoxInfo_DAV.Text = "Нет данных о сотрудниках/компании";
+                    textBoxInfo_DAV.Text = "РќРµС‚ РґР°РЅРЅС‹С… Рѕ СЃРѕС‚СЂСѓРґРЅРёРєР°С…/РєРѕРјРїР°РЅРёРё";
                     return;
                 }
 
                 StringBuilder companyInfo = new StringBuilder();
-                companyInfo.AppendLine("Статистика компании");
+                companyInfo.AppendLine("РЎС‚Р°С‚РёСЃС‚РёРєР° РєРѕРјРїР°РЅРёРё");
                 companyInfo.AppendLine("===================");
-                companyInfo.AppendLine($"Всего сотрудников: {employees.Count}");
-                companyInfo.AppendLine($"Общий фонд ЗП: {ds.GetTotalSalary()}");
-                companyInfo.AppendLine($"Средняя зарплата: {ds.GetAvgSalary()}");
-                companyInfo.AppendLine($"Средний стаж: {ds.GetAvgExpYears()} лет");
+                companyInfo.AppendLine($"Р’СЃРµРіРѕ СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ: {employees.Count}");
+                companyInfo.AppendLine($"РћР±С‰РёР№ С„РѕРЅРґ РѕРїР»Р°С‚С‹ С‚СЂСѓРґР°: {ds.GetTotalSalary()}");
+                companyInfo.AppendLine($"РЎСЂРµРґРЅСЏСЏ Р·Р°СЂРїР»Р°С‚Р°: {ds.GetAvgSalary()}");
+                companyInfo.AppendLine($"РЎСЂРµРґРЅРёР№ СЃС‚Р°Р¶: {ds.GetAvgExpYears()} Р»РµС‚");
 
                 string resultText = companyInfo.ToString();
                 textBoxInfo_DAV.Text = resultText;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка: {ex.Message}");
+                MessageBox.Show($"РћС€РёР±РєР°: {ex.Message}");
             }
         }
 
@@ -282,19 +282,19 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 if (isSalaryAsc)
                 {
                     sortedEmployees = ds.FilterBySalaryAscending();
-                    buttonSortBySalary_DAV.Text = "Оклад !";
+                    buttonSortBySalary_DAV.Text = "РћРєР»Р°Рґ в–І";
                 }
                 else
                 {
                     sortedEmployees = ds.FilterBySalaryDescending();
-                    buttonSortBySalary_DAV.Text = "Оклад i";
+                    buttonSortBySalary_DAV.Text = "РћРєР»Р°Рґ в–ј";
                 }
                 dataGridViewEmployee_DAV.DataSource = sortedEmployees;
                 isSalaryAsc = !isSalaryAsc;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка сортировки: {ex.Message}");
+                MessageBox.Show($"РћС€РёР±РєР° СЃРѕСЂС‚РёСЂРѕРІРєРё: {ex.Message}");
             }
         }
 
@@ -306,19 +306,19 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 if (isExperienceAsc)
                 {
                     sortedEmployees = ds.FilterByExperipenceAscending();
-                    buttonSortByExp_DAV.Text = "Стаж !";
+                    buttonSortByExp_DAV.Text = "РЎС‚Р°Р¶ в–І";
                 }
                 else
                 {
                     sortedEmployees = ds.FilterByExperienceDescending();
-                    buttonSortByExp_DAV.Text = "Стаж i";
+                    buttonSortByExp_DAV.Text = "РЎС‚Р°Р¶ в–ј";
                 }
                 dataGridViewEmployee_DAV.DataSource = sortedEmployees;
                 isExperienceAsc = !isExperienceAsc;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка сортировки: {ex.Message}");
+                MessageBox.Show($"РћС€РёР±РєР° СЃРѕСЂС‚РёСЂРѕРІРєРё: {ex.Message}");
             }
         }
 
@@ -330,19 +330,19 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 if (isLastNameAsc)
                 {
                     sortedEmployees = ds.FilterByLastNameAscending();
-                    buttonSortByLastName_DAV.Text = "Фамилия !";
+                    buttonSortByLastName_DAV.Text = "Р¤Р°РјРёР»РёСЏ в–І";
                 }
                 else
                 {
                     sortedEmployees = ds.FilterByLastNameDescending();
-                    buttonSortByLastName_DAV.Text = "Фамилия i";
+                    buttonSortByLastName_DAV.Text = "Р¤Р°РјРёР»РёСЏ в–ј";
                 }
                 dataGridViewEmployee_DAV.DataSource = sortedEmployees;
                 isLastNameAsc = !isLastNameAsc;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка сортировки: {ex.Message}");
+                MessageBox.Show($"РћС€РёР±РєР° СЃРѕСЂС‚РёСЂРѕРІРєРё: {ex.Message}");
             }
         }
 
@@ -354,19 +354,19 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 if (isIdAsc)
                 {
                     sortedEmployee = ds.FilterByIdAscending();
-                    buttonSortById_DAV.Text = "Id !";
+                    buttonSortById_DAV.Text = "РўР°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ в–І";
                 }
                 else
                 {
                     sortedEmployee = ds.FilterByIdDescending();
-                    buttonSortById_DAV.Text = "Id i";
+                    buttonSortById_DAV.Text = "РўР°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ в–ј";
                 }
                 dataGridViewEmployee_DAV.DataSource = sortedEmployee;
                 isIdAsc = !isIdAsc;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка сортировки: {ex.Message}");
+                MessageBox.Show($"РћС€РёР±РєР° СЃРѕСЂС‚РёСЂРѕРІРєРё: {ex.Message}");
             }
         }
     }

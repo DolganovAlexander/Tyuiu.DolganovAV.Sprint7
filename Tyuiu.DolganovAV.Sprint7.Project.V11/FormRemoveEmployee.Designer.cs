@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             groupBoxRemoveEmp_DAV = new GroupBox();
-            labelEmpInfo_DAV = new Label();
             buttonCancel_DAV = new Button();
             buttonRemoveEmp_DAV = new Button();
+            labelEmpInfo_DAV = new Label();
+            toolTipRmvEmp_DAV = new ToolTip(components);
             groupBoxRemoveEmp_DAV.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,15 +50,6 @@
             groupBoxRemoveEmp_DAV.TabStop = false;
             groupBoxRemoveEmp_DAV.Text = "Вы действительно хотите удалить:";
             // 
-            // labelEmpInfo_DAV
-            // 
-            labelEmpInfo_DAV.AutoSize = true;
-            labelEmpInfo_DAV.Location = new Point(12, 37);
-            labelEmpInfo_DAV.Name = "labelEmpInfo_DAV";
-            labelEmpInfo_DAV.Size = new Size(33, 20);
-            labelEmpInfo_DAV.TabIndex = 0;
-            labelEmpInfo_DAV.Text = "123";
-            // 
             // buttonCancel_DAV
             // 
             buttonCancel_DAV.Location = new Point(433, 232);
@@ -64,6 +57,7 @@
             buttonCancel_DAV.Size = new Size(94, 29);
             buttonCancel_DAV.TabIndex = 24;
             buttonCancel_DAV.Text = "Отмена";
+            toolTipRmvEmp_DAV.SetToolTip(buttonCancel_DAV, "Отменить удаление выбранного сотрудника");
             buttonCancel_DAV.UseVisualStyleBackColor = true;
             buttonCancel_DAV.Click += buttonCancel_DAV_Click;
             // 
@@ -74,8 +68,18 @@
             buttonRemoveEmp_DAV.Size = new Size(94, 29);
             buttonRemoveEmp_DAV.TabIndex = 23;
             buttonRemoveEmp_DAV.Text = "Удалить";
+            toolTipRmvEmp_DAV.SetToolTip(buttonRemoveEmp_DAV, "Удалить карточку сотрудника");
             buttonRemoveEmp_DAV.UseVisualStyleBackColor = true;
             buttonRemoveEmp_DAV.Click += buttonRemoveEmp_DAV_Click;
+            // 
+            // labelEmpInfo_DAV
+            // 
+            labelEmpInfo_DAV.AutoSize = true;
+            labelEmpInfo_DAV.Location = new Point(12, 37);
+            labelEmpInfo_DAV.Name = "labelEmpInfo_DAV";
+            labelEmpInfo_DAV.Size = new Size(33, 20);
+            labelEmpInfo_DAV.TabIndex = 0;
+            labelEmpInfo_DAV.Text = "123";
             // 
             // FormRemoveEmployee
             // 
@@ -99,5 +103,6 @@
         private Label labelEmpInfo_DAV;
         private Button buttonCancel_DAV;
         private Button buttonRemoveEmp_DAV;
+        private ToolTip toolTipRmvEmp_DAV;
     }
 }

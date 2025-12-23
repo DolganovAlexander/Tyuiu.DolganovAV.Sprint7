@@ -51,21 +51,16 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                     .Select(g => new { Dept = g.Key, Count = g.Count() })
                     .ToList();
 
-                MessageBox.Show($"Найдено отделов: {groups.Count}");
-
                 foreach (var g in groups)
                 {
-                    DataPoint point = new DataPoint();
-                    point.SetValueXY(g.Dept, g.Count);
-                    point.Label = $"{g.Dept}: {g.Count}";
-                    series.Points.Add(point);
+                    series.Points.AddXY(g.Dept, g.Count);
                 }
 
                 chartDepartment_DAV.Series.Add(series);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка в графике отделов: {ex.Message}\n{ex.StackTrace}");
+                MessageBox.Show($"Ошибка в графике отделов:\n{ex.Message}");
             }
         }
 
@@ -77,13 +72,15 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 chartSalary_DAV.Titles.Clear();
 
                 chartSalary_DAV.Titles.Add("Средняя зарплата по отделам");
+
                 if (chartSalary_DAV.ChartAreas.Count == 0)
                     chartSalary_DAV.ChartAreas.Add(new ChartArea());
 
-                chartSalary_DAV.ChartAreas[0].AxisX.Title = "Отделы";
-                chartSalary_DAV.ChartAreas[0].AxisY.Title = "Зарплата (руб.)";
-                chartSalary_DAV.ChartAreas[0].AxisX.Interval = 1;
-                chartSalary_DAV.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
+                var area = chartSalary_DAV.ChartAreas[0];
+                area.AxisX.Title = "Отделы";
+                area.AxisY.Title = "Зарплата (руб.)";
+                area.AxisX.Interval = 1;
+                area.AxisX.LabelStyle.Angle = -45;
 
                 Series series = new Series("Средняя ЗП");
                 series.ChartType = SeriesChartType.Column;
@@ -91,16 +88,21 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 series.LabelFormat = "N0";
                 series["PointWidth"] = "0.6";
 
+                series.XValueType = ChartValueType.String;
+                series.IsXValueIndexed = true;
+
                 if (employees.Count == 0) return;
 
-                var avg = employees
+                var avgSalary = employees
                     .GroupBy(e => e.Department)
-                    .Select(g => new { Dept = g.Key, Avg = Math.Round(g.Average(x => x.Salary), 2) })
+                    .Select(g => new
+                    {
+                        Dept = g.Key,
+                        Avg = Math.Round(g.Average(x => x.Salary), 2)
+                    })
                     .ToList();
 
-                MessageBox.Show($"Отделов для зарплат: {avg.Count}");
-
-                foreach (var item in avg)
+                foreach (var item in avgSalary)
                 {
                     series.Points.AddXY(item.Dept, item.Avg);
                 }
@@ -109,7 +111,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка в графике зарплат: {ex.Message}\n{ex.StackTrace}");
+                MessageBox.Show($"Ошибка в графике зарплат:\n{ex.Message}");
             }
         }
 
@@ -125,10 +127,11 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 if (chartExpYears_DAV.ChartAreas.Count == 0)
                     chartExpYears_DAV.ChartAreas.Add(new ChartArea());
 
-                chartExpYears_DAV.ChartAreas[0].AxisX.Title = "Отделы";
-                chartExpYears_DAV.ChartAreas[0].AxisY.Title = "Стаж (лет)";
-                chartExpYears_DAV.ChartAreas[0].AxisX.Interval = 1;
-                chartExpYears_DAV.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
+                var area = chartExpYears_DAV.ChartAreas[0];
+                area.AxisX.Title = "Отделы";
+                area.AxisY.Title = "Стаж (лет)";
+                area.AxisX.Interval = 1;
+                area.AxisX.LabelStyle.Angle = -45;
 
                 Series series = new Series("Средний стаж");
                 series.ChartType = SeriesChartType.Column;
@@ -136,14 +139,19 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 series.LabelFormat = "N1";
                 series["PointWidth"] = "0.6";
 
+                series.XValueType = ChartValueType.String;
+                series.IsXValueIndexed = true;
+
                 if (employees.Count == 0) return;
 
                 var avgExp = employees
                     .GroupBy(e => e.Department)
-                    .Select(g => new { Dept = g.Key, Avg = Math.Round(g.Average(x => x.ExperienceYears), 1) })
+                    .Select(g => new
+                    {
+                        Dept = g.Key,
+                        Avg = Math.Round(g.Average(x => x.ExperienceYears), 1)
+                    })
                     .ToList();
-
-                MessageBox.Show($"Отделов для стажа: {avgExp.Count}");
 
                 foreach (var item in avgExp)
                 {
@@ -154,7 +162,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка в графике стажа: {ex.Message}\n{ex.StackTrace}");
+                MessageBox.Show($"Ошибка в графике стажа:\n{ex.Message}");
             }
         }
     }

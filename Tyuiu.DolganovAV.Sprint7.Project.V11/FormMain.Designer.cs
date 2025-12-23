@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelNavigation_DAV = new Panel();
             groupBoxStatisitc_DAV = new GroupBox();
             textBoxInfo_DAV = new TextBox();
@@ -54,6 +55,7 @@
             dataGridViewEmployee_DAV = new DataGridView();
             openFileDialog_DAV = new OpenFileDialog();
             saveFileDialog_DAV = new SaveFileDialog();
+            toolTip_DAV = new ToolTip(components);
             panelNavigation_DAV.SuspendLayout();
             groupBoxStatisitc_DAV.SuspendLayout();
             panelInfo_DAV.SuspendLayout();
@@ -119,6 +121,7 @@
             buttonGetCharts_DAV.Size = new Size(70, 53);
             buttonGetCharts_DAV.TabIndex = 1;
             buttonGetCharts_DAV.Text = "Графики";
+            toolTip_DAV.SetToolTip(buttonGetCharts_DAV, "Визуализация данных");
             buttonGetCharts_DAV.UseVisualStyleBackColor = true;
             buttonGetCharts_DAV.Click += buttonGetCharts_DAV_Click;
             // 
@@ -130,6 +133,7 @@
             buttonGetCompInfo_DAV.Size = new Size(305, 53);
             buttonGetCompInfo_DAV.TabIndex = 0;
             buttonGetCompInfo_DAV.Text = "Информация о компании";
+            toolTip_DAV.SetToolTip(buttonGetCompInfo_DAV, "Показать сведения об органиации");
             buttonGetCompInfo_DAV.UseVisualStyleBackColor = true;
             buttonGetCompInfo_DAV.Click += buttonGetCompInfo_DAV_Click;
             // 
@@ -155,6 +159,7 @@
             buttonSortById_DAV.Size = new Size(96, 55);
             buttonSortById_DAV.TabIndex = 3;
             buttonSortById_DAV.Text = "Табельный номер";
+            toolTip_DAV.SetToolTip(buttonSortById_DAV, "Упорядочить по табельному номеру");
             buttonSortById_DAV.UseVisualStyleBackColor = true;
             buttonSortById_DAV.Click += buttonSortById_DAV_Click;
             // 
@@ -166,6 +171,7 @@
             buttonSortByLastName_DAV.Size = new Size(93, 55);
             buttonSortByLastName_DAV.TabIndex = 2;
             buttonSortByLastName_DAV.Text = "Фамилия";
+            toolTip_DAV.SetToolTip(buttonSortByLastName_DAV, "Упорядочить по фамилиям");
             buttonSortByLastName_DAV.UseVisualStyleBackColor = true;
             buttonSortByLastName_DAV.Click += buttonSortByLastName_DAV_Click;
             // 
@@ -177,6 +183,7 @@
             buttonSortByExp_DAV.Size = new Size(93, 55);
             buttonSortByExp_DAV.TabIndex = 1;
             buttonSortByExp_DAV.Text = "Стаж";
+            toolTip_DAV.SetToolTip(buttonSortByExp_DAV, "Упорядочить по стажу");
             buttonSortByExp_DAV.UseVisualStyleBackColor = true;
             buttonSortByExp_DAV.Click += buttonSortByExp_DAV_Click;
             // 
@@ -188,6 +195,7 @@
             buttonSortBySalary_DAV.Size = new Size(93, 55);
             buttonSortBySalary_DAV.TabIndex = 0;
             buttonSortBySalary_DAV.Text = "Оклад";
+            toolTip_DAV.SetToolTip(buttonSortBySalary_DAV, "Упорядочить по окладу");
             buttonSortBySalary_DAV.UseVisualStyleBackColor = true;
             buttonSortBySalary_DAV.Click += buttonSortBySalary_DAV_Click;
             // 
@@ -212,6 +220,7 @@
             buttonRemoveEmployee_DAV.Size = new Size(120, 53);
             buttonRemoveEmployee_DAV.TabIndex = 2;
             buttonRemoveEmployee_DAV.Text = "Удалить сотрудника";
+            toolTip_DAV.SetToolTip(buttonRemoveEmployee_DAV, "Удалить данные выбранного сотрудника");
             buttonRemoveEmployee_DAV.UseVisualStyleBackColor = true;
             buttonRemoveEmployee_DAV.Click += buttonRemoveEmployee_DAV_Click;
             // 
@@ -223,6 +232,7 @@
             buttonEditEmployee_DAV.Size = new Size(134, 53);
             buttonEditEmployee_DAV.TabIndex = 1;
             buttonEditEmployee_DAV.Text = "Изменить данные";
+            toolTip_DAV.SetToolTip(buttonEditEmployee_DAV, "Изменить данные существующего сотрудника");
             buttonEditEmployee_DAV.UseVisualStyleBackColor = true;
             buttonEditEmployee_DAV.Click += buttonEditEmployee_DAV_Click;
             // 
@@ -234,6 +244,7 @@
             buttonAddEmployee_DAV.Size = new Size(121, 53);
             buttonAddEmployee_DAV.TabIndex = 0;
             buttonAddEmployee_DAV.Text = "Добавить сотрудника";
+            toolTip_DAV.SetToolTip(buttonAddEmployee_DAV, "Добавить нового сотрудника");
             buttonAddEmployee_DAV.UseVisualStyleBackColor = true;
             buttonAddEmployee_DAV.Click += buttonAddEmployee_DAV_Click;
             // 
@@ -257,6 +268,7 @@
             buttonSave_DAV.Size = new Size(188, 53);
             buttonSave_DAV.TabIndex = 1;
             buttonSave_DAV.Text = "Сохранить";
+            toolTip_DAV.SetToolTip(buttonSave_DAV, "Сохраняет файл в выбранную директорию");
             buttonSave_DAV.UseVisualStyleBackColor = true;
             buttonSave_DAV.Click += buttonSave_DAV_Click;
             // 
@@ -268,6 +280,7 @@
             buttonOpen_DAV.Size = new Size(187, 53);
             buttonOpen_DAV.TabIndex = 0;
             buttonOpen_DAV.Text = "Открыть";
+            toolTip_DAV.SetToolTip(buttonOpen_DAV, "Открывает выбранный .csv файл");
             buttonOpen_DAV.UseVisualStyleBackColor = true;
             buttonOpen_DAV.Click += buttonOpen_DAV_Click;
             // 
@@ -292,6 +305,7 @@
             buttonSearch_DAV.Size = new Size(188, 29);
             buttonSearch_DAV.TabIndex = 2;
             buttonSearch_DAV.Text = "Поиск";
+            toolTip_DAV.SetToolTip(buttonSearch_DAV, "Поиск сотрудников с учетом режима, выбранного слева");
             buttonSearch_DAV.UseVisualStyleBackColor = true;
             buttonSearch_DAV.Click += buttonSearch_DAV_Click;
             // 
@@ -304,6 +318,7 @@
             comboBoxSearchType_DAV.Name = "comboBoxSearchType_DAV";
             comboBoxSearchType_DAV.Size = new Size(187, 28);
             comboBoxSearchType_DAV.TabIndex = 1;
+            toolTip_DAV.SetToolTip(comboBoxSearchType_DAV, "Выбрать режим поиска");
             // 
             // textBoxSearch_DAV
             // 
@@ -335,6 +350,10 @@
             // openFileDialog_DAV
             // 
             openFileDialog_DAV.FileName = "openFileDialog_DAV";
+            // 
+            // toolTip_DAV
+            // 
+            toolTip_DAV.Tag = "Подсказка";
             // 
             // FormMain
             // 
@@ -387,5 +406,6 @@
         private Button buttonSortByExp_DAV;
         private Button buttonSortByLastName_DAV;
         private Button buttonSortById_DAV;
+        private ToolTip toolTip_DAV;
     }
 }

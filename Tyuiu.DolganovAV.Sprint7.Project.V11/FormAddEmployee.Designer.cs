@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             groupBoxAddEmployee_DAV = new GroupBox();
             buttonCancel_DAV = new Button();
             buttonAddEmp_DAV = new Button();
@@ -45,6 +46,7 @@
             textBoxMiddleName_DAV = new TextBox();
             textBoxFirstName_DAV = new TextBox();
             textBoxLastName_DAV = new TextBox();
+            toolTipAddEmp_DAV = new ToolTip(components);
             groupBoxAddEmployee_DAV.SuspendLayout();
             SuspendLayout();
             // 
@@ -81,6 +83,7 @@
             buttonCancel_DAV.Size = new Size(94, 29);
             buttonCancel_DAV.TabIndex = 22;
             buttonCancel_DAV.Text = "Отмена";
+            toolTipAddEmp_DAV.SetToolTip(buttonCancel_DAV, "Отменить добавление сотрудника");
             buttonCancel_DAV.UseVisualStyleBackColor = true;
             buttonCancel_DAV.Click += buttonCancel_DAV_Click;
             // 
@@ -91,6 +94,7 @@
             buttonAddEmp_DAV.Size = new Size(94, 29);
             buttonAddEmp_DAV.TabIndex = 21;
             buttonAddEmp_DAV.Text = "Добавить";
+            toolTipAddEmp_DAV.SetToolTip(buttonAddEmp_DAV, "Создать карточку нового сотрудника");
             buttonAddEmp_DAV.UseVisualStyleBackColor = true;
             buttonAddEmp_DAV.Click += buttonAddEmp_DAV_Click;
             // 
@@ -242,5 +246,6 @@
         private Label labelLastName_DAV;
         private Button buttonAddEmp_DAV;
         private Button buttonCancel_DAV;
+        private ToolTip toolTipAddEmp_DAV;
     }
 }
