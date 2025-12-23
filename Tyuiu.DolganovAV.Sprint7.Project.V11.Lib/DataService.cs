@@ -107,13 +107,14 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Lib
 
 
         // ============= FILTERS
-        public List<Employee> FilterByDepartment(string department) // фильтр по отделу
+
+        public List<Employee> FilterByIdAscending()
         {
-            return employees.Where(e => e.Department.Equals(department, StringComparison.OrdinalIgnoreCase)).ToList();
+            return employees.OrderBy(e => e.Id).ToList();
         }
-        public List<Employee> FilterBySalary(decimal minSalary, decimal maxSalary) // фильт по диапазону зарплат
+        public List<Employee> FilterByIdDescending()
         {
-            return employees.Where(e => e.Salary >= minSalary && e.Salary <= maxSalary).ToList();
+            return employees.OrderByDescending(e => e.Id).ToList();
         }
         public List<Employee> FilterBySalaryAscending() // фтльр по убываниб зарплат
         {
@@ -153,6 +154,11 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Lib
         public int GetEmployeeCount() // количество сотрудников
         {
             return employees.Count();
+        }
+        public double GetAvgExpYears() // средний стаж сотрудников
+        {
+            if (employees.Count == 0) return 0;
+            return employees.Average(e => e.ExperienceYears);
         }
     }
 }
