@@ -18,6 +18,19 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
             saveFileDialog_DAV.Filter = "CSV Файлы (*.csv)|*.csv|Все файлы (*.*)|*.*";
         }
 
+        private void SetEmployeeGridHeader()
+        {
+            if (dataGridViewEmployee_DAV.Columns.Count == 0) return;
+
+            dataGridViewEmployee_DAV.Columns["Id"].HeaderText = "Табельный номер (Id)";
+            dataGridViewEmployee_DAV.Columns["LastName"].HeaderText = "Фамилия";
+            dataGridViewEmployee_DAV.Columns["FirstName"].HeaderText = "Имя";
+            dataGridViewEmployee_DAV.Columns["MiddleName"].HeaderText = "Отчество";
+            dataGridViewEmployee_DAV.Columns["BirthDate"].HeaderText = "Дата рождения";
+            dataGridViewEmployee_DAV.Columns["ExperienceYears"].HeaderText = "Стаж";
+            dataGridViewEmployee_DAV.Columns["Salary"].HeaderText = "Оклад";
+            dataGridViewEmployee_DAV.Columns["Department"].HeaderText = "Отдел";
+        }
         private int GenNewId()
         {
             var allEmployees = ds.GetAllEmployees();
@@ -31,20 +44,13 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
             {
                 try
                 {
+                    ds = new DataService();
                     ds.LoadEmpFromFile(openFileDialog_DAV.FileName);
                     employees = ds.GetAllEmployees();
 
                     dataGridViewEmployee_DAV.DataSource = employees;
 
-
-                    dataGridViewEmployee_DAV.Columns["Id"].HeaderText = "Табельный номер (Id)";
-                    dataGridViewEmployee_DAV.Columns["LastName"].HeaderText = "Фамилия";
-                    dataGridViewEmployee_DAV.Columns["FirstName"].HeaderText = "Имя";
-                    dataGridViewEmployee_DAV.Columns["MiddleName"].HeaderText = "Отчество";
-                    dataGridViewEmployee_DAV.Columns["BirthDate"].HeaderText = "Дата рождения";
-                    dataGridViewEmployee_DAV.Columns["ExperienceYears"].HeaderText = "Стаж";
-                    dataGridViewEmployee_DAV.Columns["Salary"].HeaderText = "Оклад";
-                    dataGridViewEmployee_DAV.Columns["Department"].HeaderText = "Отдел";
+                    SetEmployeeGridHeader();
 
                     dataGridViewEmployee_DAV.AllowUserToOrderColumns = true;
                 }
@@ -105,7 +111,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                     }
                     break;
                 case "По фамилии":
-                    results = ds.FindByFisrtName(searchText);
+                    results = ds.FindByLastName(searchText);
                     break;
                 case "По отделу":
                     results = ds.FindByDepartment(searchText);
@@ -129,6 +135,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
 
                     dataGridViewEmployee_DAV.DataSource = null;
                     dataGridViewEmployee_DAV.DataSource = employees;
+                    SetEmployeeGridHeader();
 
                     MessageBox.Show("Сотрудник успешно добавлен!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -172,6 +179,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                             employees = ds.GetAllEmployees();
                             dataGridViewEmployee_DAV.DataSource = null;
                             dataGridViewEmployee_DAV.DataSource = employees;
+                            SetEmployeeGridHeader();
 
                             MessageBox.Show("Данные сотрудника обновлены", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -223,6 +231,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                             employees = ds.GetAllEmployees();
                             dataGridViewEmployee_DAV.DataSource = null;
                             dataGridViewEmployee_DAV.DataSource = employees;
+                            SetEmployeeGridHeader();
 
                             MessageBox.Show("Сотрудник успешно удален", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -290,6 +299,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                     buttonSortBySalary_DAV.Text = "Оклад ▼";
                 }
                 dataGridViewEmployee_DAV.DataSource = sortedEmployees;
+                SetEmployeeGridHeader();
                 isSalaryAsc = !isSalaryAsc;
             }
             catch (Exception ex)
@@ -314,6 +324,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                     buttonSortByExp_DAV.Text = "Стаж ▼";
                 }
                 dataGridViewEmployee_DAV.DataSource = sortedEmployees;
+                SetEmployeeGridHeader();
                 isExperienceAsc = !isExperienceAsc;
             }
             catch (Exception ex)
@@ -338,6 +349,7 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                     buttonSortByLastName_DAV.Text = "Фамилия ▼";
                 }
                 dataGridViewEmployee_DAV.DataSource = sortedEmployees;
+                SetEmployeeGridHeader();
                 isLastNameAsc = !isLastNameAsc;
             }
             catch (Exception ex)

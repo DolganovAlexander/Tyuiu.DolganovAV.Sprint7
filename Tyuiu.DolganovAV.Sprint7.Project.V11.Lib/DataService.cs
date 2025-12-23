@@ -59,9 +59,9 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11.Lib
         {
             return employees.FirstOrDefault(e => e.Id == id);
         }
-        public List<Employee> FindByFisrtName(string firstName) // поиск по фамилии
+        public List<Employee> FindByLastName(string lastName) // поиск по фамилии
         {
-            return employees.Where(e => e.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase)).ToList();
+            return employees.Where(e => e.LastName.Equals(lastName, StringComparison.OrdinalIgnoreCase)).ToList();
             // StringComparsion.Ordinal... - сравнение без учета регистра
         }
         public List<Employee> FindByDepartment(string departmentName) // поиск по отделу
