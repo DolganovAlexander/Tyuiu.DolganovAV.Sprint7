@@ -292,11 +292,18 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 {
                     sortedEmployees = ds.FilterBySalaryAscending();
                     buttonSortBySalary_DAV.Text = "Оклад ▲";
+                    buttonSortByExp_DAV.Text = "Стаж";
+                    buttonSortByLastName_DAV.Text = "Фамилия";
+                    buttonSortById_DAV.Text = "Табельный номер";
+
                 }
                 else
                 {
                     sortedEmployees = ds.FilterBySalaryDescending();
                     buttonSortBySalary_DAV.Text = "Оклад ▼";
+                    buttonSortByExp_DAV.Text = "Стаж";
+                    buttonSortByLastName_DAV.Text = "Фамилия";
+                    buttonSortById_DAV.Text = "Табельный номер";
                 }
                 dataGridViewEmployee_DAV.DataSource = sortedEmployees;
                 SetEmployeeGridHeader();
@@ -317,11 +324,17 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 {
                     sortedEmployees = ds.FilterByExperipenceAscending();
                     buttonSortByExp_DAV.Text = "Стаж ▲";
+                    buttonSortBySalary_DAV.Text = "Оклад";
+                    buttonSortByLastName_DAV.Text = "Фамилия";
+                    buttonSortById_DAV.Text = "Табельный номер";
                 }
                 else
                 {
                     sortedEmployees = ds.FilterByExperienceDescending();
                     buttonSortByExp_DAV.Text = "Стаж ▼";
+                    buttonSortBySalary_DAV.Text = "Оклад";
+                    buttonSortByLastName_DAV.Text = "Фамилия";
+                    buttonSortById_DAV.Text = "Табельный номер";
                 }
                 dataGridViewEmployee_DAV.DataSource = sortedEmployees;
                 SetEmployeeGridHeader();
@@ -342,11 +355,17 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 {
                     sortedEmployees = ds.FilterByLastNameAscending();
                     buttonSortByLastName_DAV.Text = "Фамилия ▲";
+                    buttonSortBySalary_DAV.Text = "Оклад";
+                    buttonSortByExp_DAV.Text = "Стаж";
+                    buttonSortById_DAV.Text = "Табельный номер";
                 }
                 else
                 {
                     sortedEmployees = ds.FilterByLastNameDescending();
                     buttonSortByLastName_DAV.Text = "Фамилия ▼";
+                    buttonSortBySalary_DAV.Text = "Оклад";
+                    buttonSortByExp_DAV.Text = "Стаж";
+                    buttonSortById_DAV.Text = "Табельный номер";
                 }
                 dataGridViewEmployee_DAV.DataSource = sortedEmployees;
                 SetEmployeeGridHeader();
@@ -367,11 +386,17 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
                 {
                     sortedEmployee = ds.FilterByIdAscending();
                     buttonSortById_DAV.Text = "Табельный номер ▲";
+                    buttonSortBySalary_DAV.Text = "Оклад";
+                    buttonSortByExp_DAV.Text = "Стаж";
+                    buttonSortByLastName_DAV.Text = "Фамилия";
                 }
                 else
                 {
                     sortedEmployee = ds.FilterByIdDescending();
                     buttonSortById_DAV.Text = "Табельный номер ▼";
+                    buttonSortBySalary_DAV.Text = "Оклад";
+                    buttonSortByExp_DAV.Text = "Стаж";
+                    buttonSortByLastName_DAV.Text = "Фамилия";
                 }
                 dataGridViewEmployee_DAV.DataSource = sortedEmployee;
                 isIdAsc = !isIdAsc;
@@ -380,6 +405,12 @@ namespace Tyuiu.DolganovAV.Sprint7.Project.V11
             {
                 MessageBox.Show($"Ошибка сортировки: {ex.Message}");
             }
+        }
+
+        private void buttonAbout_DAV_Click(object sender, EventArgs e)
+        {
+            FormAbout formAbout = new FormAbout();
+            formAbout.ShowDialog();
         }
     }
 }

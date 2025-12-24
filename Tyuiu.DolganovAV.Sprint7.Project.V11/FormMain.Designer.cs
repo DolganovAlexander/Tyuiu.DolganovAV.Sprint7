@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelNavigation_DAV = new Panel();
             groupBoxStatisitc_DAV = new GroupBox();
+            buttonAbout_DAV = new Button();
             textBoxInfo_DAV = new TextBox();
             panelInfo_DAV = new Panel();
             buttonGetCharts_DAV = new Button();
@@ -77,20 +80,32 @@
             panelNavigation_DAV.Dock = DockStyle.Left;
             panelNavigation_DAV.Location = new Point(0, 0);
             panelNavigation_DAV.Name = "panelNavigation_DAV";
-            panelNavigation_DAV.Size = new Size(381, 923);
+            panelNavigation_DAV.Size = new Size(397, 923);
             panelNavigation_DAV.TabIndex = 0;
             // 
             // groupBoxStatisitc_DAV
             // 
+            groupBoxStatisitc_DAV.Controls.Add(buttonAbout_DAV);
             groupBoxStatisitc_DAV.Controls.Add(textBoxInfo_DAV);
             groupBoxStatisitc_DAV.Controls.Add(panelInfo_DAV);
             groupBoxStatisitc_DAV.Dock = DockStyle.Fill;
-            groupBoxStatisitc_DAV.Location = new Point(0, 321);
+            groupBoxStatisitc_DAV.Location = new Point(0, 328);
             groupBoxStatisitc_DAV.Name = "groupBoxStatisitc_DAV";
-            groupBoxStatisitc_DAV.Size = new Size(381, 602);
+            groupBoxStatisitc_DAV.Size = new Size(397, 595);
             groupBoxStatisitc_DAV.TabIndex = 5;
             groupBoxStatisitc_DAV.TabStop = false;
             groupBoxStatisitc_DAV.Text = "Статистика";
+            // 
+            // buttonAbout_DAV
+            // 
+            buttonAbout_DAV.Image = (Image)resources.GetObject("buttonAbout_DAV.Image");
+            buttonAbout_DAV.Location = new Point(0, 555);
+            buttonAbout_DAV.Name = "buttonAbout_DAV";
+            buttonAbout_DAV.Size = new Size(40, 40);
+            buttonAbout_DAV.TabIndex = 2;
+            toolTip_DAV.SetToolTip(buttonAbout_DAV, "Подробная информация о программе");
+            buttonAbout_DAV.UseVisualStyleBackColor = true;
+            buttonAbout_DAV.Click += buttonAbout_DAV_Click;
             // 
             // textBoxInfo_DAV
             // 
@@ -100,7 +115,7 @@
             textBoxInfo_DAV.Name = "textBoxInfo_DAV";
             textBoxInfo_DAV.ReadOnly = true;
             textBoxInfo_DAV.ScrollBars = ScrollBars.Vertical;
-            textBoxInfo_DAV.Size = new Size(375, 523);
+            textBoxInfo_DAV.Size = new Size(391, 516);
             textBoxInfo_DAV.TabIndex = 1;
             // 
             // panelInfo_DAV
@@ -110,17 +125,17 @@
             panelInfo_DAV.Dock = DockStyle.Top;
             panelInfo_DAV.Location = new Point(3, 23);
             panelInfo_DAV.Name = "panelInfo_DAV";
-            panelInfo_DAV.Size = new Size(375, 53);
+            panelInfo_DAV.Size = new Size(391, 53);
             panelInfo_DAV.TabIndex = 0;
             // 
             // buttonGetCharts_DAV
             // 
             buttonGetCharts_DAV.Dock = DockStyle.Fill;
+            buttonGetCharts_DAV.Image = (Image)resources.GetObject("buttonGetCharts_DAV.Image");
             buttonGetCharts_DAV.Location = new Point(305, 0);
             buttonGetCharts_DAV.Name = "buttonGetCharts_DAV";
-            buttonGetCharts_DAV.Size = new Size(70, 53);
+            buttonGetCharts_DAV.Size = new Size(86, 53);
             buttonGetCharts_DAV.TabIndex = 1;
-            buttonGetCharts_DAV.Text = "Графики";
             toolTip_DAV.SetToolTip(buttonGetCharts_DAV, "Визуализация данных");
             buttonGetCharts_DAV.UseVisualStyleBackColor = true;
             buttonGetCharts_DAV.Click += buttonGetCharts_DAV_Click;
@@ -128,6 +143,7 @@
             // buttonGetCompInfo_DAV
             // 
             buttonGetCompInfo_DAV.Dock = DockStyle.Left;
+            buttonGetCompInfo_DAV.Font = new Font("Segoe UI", 11F);
             buttonGetCompInfo_DAV.Location = new Point(0, 0);
             buttonGetCompInfo_DAV.Name = "buttonGetCompInfo_DAV";
             buttonGetCompInfo_DAV.Size = new Size(305, 53);
@@ -144,9 +160,9 @@
             groupBoxSort_DAV.Controls.Add(buttonSortByExp_DAV);
             groupBoxSort_DAV.Controls.Add(buttonSortBySalary_DAV);
             groupBoxSort_DAV.Dock = DockStyle.Top;
-            groupBoxSort_DAV.Location = new Point(0, 240);
+            groupBoxSort_DAV.Location = new Point(0, 247);
             groupBoxSort_DAV.Name = "groupBoxSort_DAV";
-            groupBoxSort_DAV.Size = new Size(381, 81);
+            groupBoxSort_DAV.Size = new Size(397, 81);
             groupBoxSort_DAV.TabIndex = 4;
             groupBoxSort_DAV.TabStop = false;
             groupBoxSort_DAV.Text = "Сортировка";
@@ -154,11 +170,12 @@
             // buttonSortById_DAV
             // 
             buttonSortById_DAV.Dock = DockStyle.Fill;
+            buttonSortById_DAV.Font = new Font("Segoe UI", 10F);
             buttonSortById_DAV.Location = new Point(282, 23);
             buttonSortById_DAV.Name = "buttonSortById_DAV";
-            buttonSortById_DAV.Size = new Size(96, 55);
+            buttonSortById_DAV.Size = new Size(112, 55);
             buttonSortById_DAV.TabIndex = 3;
-            buttonSortById_DAV.Text = "Табельный номер";
+            buttonSortById_DAV.Text = "Табельный \r\nномер";
             toolTip_DAV.SetToolTip(buttonSortById_DAV, "Упорядочить по табельному номеру");
             buttonSortById_DAV.UseVisualStyleBackColor = true;
             buttonSortById_DAV.Click += buttonSortById_DAV_Click;
@@ -166,9 +183,10 @@
             // buttonSortByLastName_DAV
             // 
             buttonSortByLastName_DAV.Dock = DockStyle.Left;
-            buttonSortByLastName_DAV.Location = new Point(189, 23);
+            buttonSortByLastName_DAV.Font = new Font("Segoe UI", 10F);
+            buttonSortByLastName_DAV.Location = new Point(181, 23);
             buttonSortByLastName_DAV.Name = "buttonSortByLastName_DAV";
-            buttonSortByLastName_DAV.Size = new Size(93, 55);
+            buttonSortByLastName_DAV.Size = new Size(101, 55);
             buttonSortByLastName_DAV.TabIndex = 2;
             buttonSortByLastName_DAV.Text = "Фамилия";
             toolTip_DAV.SetToolTip(buttonSortByLastName_DAV, "Упорядочить по фамилиям");
@@ -178,9 +196,10 @@
             // buttonSortByExp_DAV
             // 
             buttonSortByExp_DAV.Dock = DockStyle.Left;
-            buttonSortByExp_DAV.Location = new Point(96, 23);
+            buttonSortByExp_DAV.Font = new Font("Segoe UI", 10F);
+            buttonSortByExp_DAV.Location = new Point(92, 23);
             buttonSortByExp_DAV.Name = "buttonSortByExp_DAV";
-            buttonSortByExp_DAV.Size = new Size(93, 55);
+            buttonSortByExp_DAV.Size = new Size(89, 55);
             buttonSortByExp_DAV.TabIndex = 1;
             buttonSortByExp_DAV.Text = "Стаж";
             toolTip_DAV.SetToolTip(buttonSortByExp_DAV, "Упорядочить по стажу");
@@ -190,9 +209,10 @@
             // buttonSortBySalary_DAV
             // 
             buttonSortBySalary_DAV.Dock = DockStyle.Left;
+            buttonSortBySalary_DAV.Font = new Font("Segoe UI", 10F);
             buttonSortBySalary_DAV.Location = new Point(3, 23);
             buttonSortBySalary_DAV.Name = "buttonSortBySalary_DAV";
-            buttonSortBySalary_DAV.Size = new Size(93, 55);
+            buttonSortBySalary_DAV.Size = new Size(89, 55);
             buttonSortBySalary_DAV.TabIndex = 0;
             buttonSortBySalary_DAV.Text = "Оклад";
             toolTip_DAV.SetToolTip(buttonSortBySalary_DAV, "Упорядочить по окладу");
@@ -205,9 +225,9 @@
             groupBoxActions_DAV.Controls.Add(buttonEditEmployee_DAV);
             groupBoxActions_DAV.Controls.Add(buttonAddEmployee_DAV);
             groupBoxActions_DAV.Dock = DockStyle.Top;
-            groupBoxActions_DAV.Location = new Point(0, 161);
+            groupBoxActions_DAV.Location = new Point(0, 168);
             groupBoxActions_DAV.Name = "groupBoxActions_DAV";
-            groupBoxActions_DAV.Size = new Size(381, 79);
+            groupBoxActions_DAV.Size = new Size(397, 79);
             groupBoxActions_DAV.TabIndex = 2;
             groupBoxActions_DAV.TabStop = false;
             groupBoxActions_DAV.Text = "Действия";
@@ -215,11 +235,12 @@
             // buttonRemoveEmployee_DAV
             // 
             buttonRemoveEmployee_DAV.Dock = DockStyle.Fill;
-            buttonRemoveEmployee_DAV.Location = new Point(258, 23);
+            buttonRemoveEmployee_DAV.Font = new Font("Segoe UI", 11F);
+            buttonRemoveEmployee_DAV.Image = (Image)resources.GetObject("buttonRemoveEmployee_DAV.Image");
+            buttonRemoveEmployee_DAV.Location = new Point(266, 23);
             buttonRemoveEmployee_DAV.Name = "buttonRemoveEmployee_DAV";
-            buttonRemoveEmployee_DAV.Size = new Size(120, 53);
+            buttonRemoveEmployee_DAV.Size = new Size(128, 53);
             buttonRemoveEmployee_DAV.TabIndex = 2;
-            buttonRemoveEmployee_DAV.Text = "Удалить сотрудника";
             toolTip_DAV.SetToolTip(buttonRemoveEmployee_DAV, "Удалить данные выбранного сотрудника");
             buttonRemoveEmployee_DAV.UseVisualStyleBackColor = true;
             buttonRemoveEmployee_DAV.Click += buttonRemoveEmployee_DAV_Click;
@@ -227,11 +248,12 @@
             // buttonEditEmployee_DAV
             // 
             buttonEditEmployee_DAV.Dock = DockStyle.Left;
-            buttonEditEmployee_DAV.Location = new Point(124, 23);
+            buttonEditEmployee_DAV.Font = new Font("Segoe UI", 11F);
+            buttonEditEmployee_DAV.Image = (Image)resources.GetObject("buttonEditEmployee_DAV.Image");
+            buttonEditEmployee_DAV.Location = new Point(132, 23);
             buttonEditEmployee_DAV.Name = "buttonEditEmployee_DAV";
             buttonEditEmployee_DAV.Size = new Size(134, 53);
             buttonEditEmployee_DAV.TabIndex = 1;
-            buttonEditEmployee_DAV.Text = "Изменить данные";
             toolTip_DAV.SetToolTip(buttonEditEmployee_DAV, "Изменить данные существующего сотрудника");
             buttonEditEmployee_DAV.UseVisualStyleBackColor = true;
             buttonEditEmployee_DAV.Click += buttonEditEmployee_DAV_Click;
@@ -239,11 +261,12 @@
             // buttonAddEmployee_DAV
             // 
             buttonAddEmployee_DAV.Dock = DockStyle.Left;
+            buttonAddEmployee_DAV.Font = new Font("Segoe UI", 11F);
+            buttonAddEmployee_DAV.Image = (Image)resources.GetObject("buttonAddEmployee_DAV.Image");
             buttonAddEmployee_DAV.Location = new Point(3, 23);
             buttonAddEmployee_DAV.Name = "buttonAddEmployee_DAV";
-            buttonAddEmployee_DAV.Size = new Size(121, 53);
+            buttonAddEmployee_DAV.Size = new Size(129, 53);
             buttonAddEmployee_DAV.TabIndex = 0;
-            buttonAddEmployee_DAV.Text = "Добавить сотрудника";
             toolTip_DAV.SetToolTip(buttonAddEmployee_DAV, "Добавить нового сотрудника");
             buttonAddEmployee_DAV.UseVisualStyleBackColor = true;
             buttonAddEmployee_DAV.Click += buttonAddEmployee_DAV_Click;
@@ -253,9 +276,9 @@
             groupBoxFiles_DAV.Controls.Add(buttonSave_DAV);
             groupBoxFiles_DAV.Controls.Add(buttonOpen_DAV);
             groupBoxFiles_DAV.Dock = DockStyle.Top;
-            groupBoxFiles_DAV.Location = new Point(0, 82);
+            groupBoxFiles_DAV.Location = new Point(0, 89);
             groupBoxFiles_DAV.Name = "groupBoxFiles_DAV";
-            groupBoxFiles_DAV.Size = new Size(381, 79);
+            groupBoxFiles_DAV.Size = new Size(397, 79);
             groupBoxFiles_DAV.TabIndex = 1;
             groupBoxFiles_DAV.TabStop = false;
             groupBoxFiles_DAV.Text = "Файл";
@@ -263,9 +286,10 @@
             // buttonSave_DAV
             // 
             buttonSave_DAV.Dock = DockStyle.Fill;
+            buttonSave_DAV.Font = new Font("Segoe UI", 11F);
             buttonSave_DAV.Location = new Point(190, 23);
             buttonSave_DAV.Name = "buttonSave_DAV";
-            buttonSave_DAV.Size = new Size(188, 53);
+            buttonSave_DAV.Size = new Size(204, 53);
             buttonSave_DAV.TabIndex = 1;
             buttonSave_DAV.Text = "Сохранить";
             toolTip_DAV.SetToolTip(buttonSave_DAV, "Сохраняет файл в выбранную директорию");
@@ -275,6 +299,7 @@
             // buttonOpen_DAV
             // 
             buttonOpen_DAV.Dock = DockStyle.Left;
+            buttonOpen_DAV.Font = new Font("Segoe UI", 11F);
             buttonOpen_DAV.Location = new Point(3, 23);
             buttonOpen_DAV.Name = "buttonOpen_DAV";
             buttonOpen_DAV.Size = new Size(187, 53);
@@ -290,9 +315,10 @@
             groupBoxSearch_DAV.Controls.Add(comboBoxSearchType_DAV);
             groupBoxSearch_DAV.Controls.Add(textBoxSearch_DAV);
             groupBoxSearch_DAV.Dock = DockStyle.Top;
+            groupBoxSearch_DAV.Font = new Font("Segoe UI", 9F);
             groupBoxSearch_DAV.Location = new Point(0, 0);
             groupBoxSearch_DAV.Name = "groupBoxSearch_DAV";
-            groupBoxSearch_DAV.Size = new Size(381, 82);
+            groupBoxSearch_DAV.Size = new Size(397, 89);
             groupBoxSearch_DAV.TabIndex = 0;
             groupBoxSearch_DAV.TabStop = false;
             groupBoxSearch_DAV.Text = "Поиск";
@@ -300,9 +326,12 @@
             // buttonSearch_DAV
             // 
             buttonSearch_DAV.Dock = DockStyle.Fill;
+            buttonSearch_DAV.Font = new Font("Segoe UI", 11F);
+            buttonSearch_DAV.Image = (Image)resources.GetObject("buttonSearch_DAV.Image");
+            buttonSearch_DAV.ImageAlign = ContentAlignment.MiddleRight;
             buttonSearch_DAV.Location = new Point(190, 50);
             buttonSearch_DAV.Name = "buttonSearch_DAV";
-            buttonSearch_DAV.Size = new Size(188, 29);
+            buttonSearch_DAV.Size = new Size(204, 36);
             buttonSearch_DAV.TabIndex = 2;
             buttonSearch_DAV.Text = "Поиск";
             toolTip_DAV.SetToolTip(buttonSearch_DAV, "Поиск сотрудников с учетом режима, выбранного слева");
@@ -312,11 +341,12 @@
             // comboBoxSearchType_DAV
             // 
             comboBoxSearchType_DAV.Dock = DockStyle.Left;
+            comboBoxSearchType_DAV.Font = new Font("Segoe UI", 11F);
             comboBoxSearchType_DAV.FormattingEnabled = true;
             comboBoxSearchType_DAV.Items.AddRange(new object[] { "По ID", "По фамилии", "По отделу" });
             comboBoxSearchType_DAV.Location = new Point(3, 50);
             comboBoxSearchType_DAV.Name = "comboBoxSearchType_DAV";
-            comboBoxSearchType_DAV.Size = new Size(187, 28);
+            comboBoxSearchType_DAV.Size = new Size(187, 33);
             comboBoxSearchType_DAV.TabIndex = 1;
             toolTip_DAV.SetToolTip(comboBoxSearchType_DAV, "Выбрать режим поиска");
             // 
@@ -325,26 +355,34 @@
             textBoxSearch_DAV.Dock = DockStyle.Top;
             textBoxSearch_DAV.Location = new Point(3, 23);
             textBoxSearch_DAV.Name = "textBoxSearch_DAV";
-            textBoxSearch_DAV.Size = new Size(375, 27);
+            textBoxSearch_DAV.Size = new Size(391, 27);
             textBoxSearch_DAV.TabIndex = 0;
             // 
             // panelShowData_DAV
             // 
             panelShowData_DAV.Controls.Add(dataGridViewEmployee_DAV);
             panelShowData_DAV.Dock = DockStyle.Fill;
-            panelShowData_DAV.Location = new Point(381, 0);
+            panelShowData_DAV.Location = new Point(397, 0);
             panelShowData_DAV.Name = "panelShowData_DAV";
-            panelShowData_DAV.Size = new Size(1047, 923);
+            panelShowData_DAV.Size = new Size(1031, 923);
             panelShowData_DAV.TabIndex = 1;
             // 
             // dataGridViewEmployee_DAV
             // 
             dataGridViewEmployee_DAV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewEmployee_DAV.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewEmployee_DAV.Dock = DockStyle.Fill;
             dataGridViewEmployee_DAV.Location = new Point(0, 0);
             dataGridViewEmployee_DAV.Name = "dataGridViewEmployee_DAV";
             dataGridViewEmployee_DAV.RowHeadersWidth = 51;
-            dataGridViewEmployee_DAV.Size = new Size(1047, 923);
+            dataGridViewEmployee_DAV.Size = new Size(1031, 923);
             dataGridViewEmployee_DAV.TabIndex = 0;
             // 
             // openFileDialog_DAV
@@ -407,5 +445,6 @@
         private Button buttonSortByLastName_DAV;
         private Button buttonSortById_DAV;
         private ToolTip toolTip_DAV;
+        private Button buttonAbout_DAV;
     }
 }

@@ -59,6 +59,7 @@
             tabControlCharts_DAV.Controls.Add(tabPageSalary_DAV);
             tabControlCharts_DAV.Controls.Add(tabPageExpYears_DAV);
             tabControlCharts_DAV.Dock = DockStyle.Fill;
+            tabControlCharts_DAV.Font = new Font("Segoe UI", 11F);
             tabControlCharts_DAV.Location = new Point(0, 0);
             tabControlCharts_DAV.Name = "tabControlCharts_DAV";
             tabControlCharts_DAV.SelectedIndex = 0;
@@ -68,10 +69,10 @@
             // tabPageDepartment_DAV
             // 
             tabPageDepartment_DAV.Controls.Add(chartDepartment_DAV);
-            tabPageDepartment_DAV.Location = new Point(4, 29);
+            tabPageDepartment_DAV.Location = new Point(4, 34);
             tabPageDepartment_DAV.Name = "tabPageDepartment_DAV";
             tabPageDepartment_DAV.Padding = new Padding(3);
-            tabPageDepartment_DAV.Size = new Size(800, 421);
+            tabPageDepartment_DAV.Size = new Size(800, 416);
             tabPageDepartment_DAV.TabIndex = 0;
             tabPageDepartment_DAV.Text = "Отделы";
             tabPageDepartment_DAV.UseVisualStyleBackColor = true;
@@ -91,7 +92,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             chartDepartment_DAV.Series.Add(series1);
-            chartDepartment_DAV.Size = new Size(794, 415);
+            chartDepartment_DAV.Size = new Size(794, 410);
             chartDepartment_DAV.TabIndex = 0;
             chartDepartment_DAV.Text = "chartDepartment_DAV";
             // 

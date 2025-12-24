@@ -43,6 +43,7 @@
             groupBoxRemoveEmp_DAV.Controls.Add(buttonRemoveEmp_DAV);
             groupBoxRemoveEmp_DAV.Controls.Add(labelEmpInfo_DAV);
             groupBoxRemoveEmp_DAV.Dock = DockStyle.Fill;
+            groupBoxRemoveEmp_DAV.Font = new Font("Segoe UI", 11F);
             groupBoxRemoveEmp_DAV.Location = new Point(0, 0);
             groupBoxRemoveEmp_DAV.Name = "groupBoxRemoveEmp_DAV";
             groupBoxRemoveEmp_DAV.Size = new Size(639, 273);
@@ -52,9 +53,9 @@
             // 
             // buttonCancel_DAV
             // 
-            buttonCancel_DAV.Location = new Point(433, 232);
+            buttonCancel_DAV.Location = new Point(407, 227);
             buttonCancel_DAV.Name = "buttonCancel_DAV";
-            buttonCancel_DAV.Size = new Size(94, 29);
+            buttonCancel_DAV.Size = new Size(107, 34);
             buttonCancel_DAV.TabIndex = 24;
             buttonCancel_DAV.Text = "Отмена";
             toolTipRmvEmp_DAV.SetToolTip(buttonCancel_DAV, "Отменить удаление выбранного сотрудника");
@@ -63,9 +64,9 @@
             // 
             // buttonRemoveEmp_DAV
             // 
-            buttonRemoveEmp_DAV.Location = new Point(533, 232);
+            buttonRemoveEmp_DAV.Location = new Point(520, 227);
             buttonRemoveEmp_DAV.Name = "buttonRemoveEmp_DAV";
-            buttonRemoveEmp_DAV.Size = new Size(94, 29);
+            buttonRemoveEmp_DAV.Size = new Size(107, 34);
             buttonRemoveEmp_DAV.TabIndex = 23;
             buttonRemoveEmp_DAV.Text = "Удалить";
             toolTipRmvEmp_DAV.SetToolTip(buttonRemoveEmp_DAV, "Удалить карточку сотрудника");
@@ -77,7 +78,7 @@
             labelEmpInfo_DAV.AutoSize = true;
             labelEmpInfo_DAV.Location = new Point(12, 37);
             labelEmpInfo_DAV.Name = "labelEmpInfo_DAV";
-            labelEmpInfo_DAV.Size = new Size(33, 20);
+            labelEmpInfo_DAV.Size = new Size(42, 25);
             labelEmpInfo_DAV.TabIndex = 0;
             labelEmpInfo_DAV.Text = "123";
             // 

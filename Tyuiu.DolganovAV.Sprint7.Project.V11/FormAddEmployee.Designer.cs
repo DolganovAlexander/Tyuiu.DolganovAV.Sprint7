@@ -69,6 +69,7 @@
             groupBoxAddEmployee_DAV.Controls.Add(textBoxFirstName_DAV);
             groupBoxAddEmployee_DAV.Controls.Add(textBoxLastName_DAV);
             groupBoxAddEmployee_DAV.Dock = DockStyle.Fill;
+            groupBoxAddEmployee_DAV.Font = new Font("Segoe UI", 11F);
             groupBoxAddEmployee_DAV.Location = new Point(0, 0);
             groupBoxAddEmployee_DAV.Name = "groupBoxAddEmployee_DAV";
             groupBoxAddEmployee_DAV.Size = new Size(639, 273);
@@ -78,9 +79,9 @@
             // 
             // buttonCancel_DAV
             // 
-            buttonCancel_DAV.Location = new Point(433, 232);
+            buttonCancel_DAV.Location = new Point(407, 227);
             buttonCancel_DAV.Name = "buttonCancel_DAV";
-            buttonCancel_DAV.Size = new Size(94, 29);
+            buttonCancel_DAV.Size = new Size(107, 34);
             buttonCancel_DAV.TabIndex = 22;
             buttonCancel_DAV.Text = "Отмена";
             toolTipAddEmp_DAV.SetToolTip(buttonCancel_DAV, "Отменить добавление сотрудника");
@@ -89,9 +90,9 @@
             // 
             // buttonAddEmp_DAV
             // 
-            buttonAddEmp_DAV.Location = new Point(533, 232);
+            buttonAddEmp_DAV.Location = new Point(520, 227);
             buttonAddEmp_DAV.Name = "buttonAddEmp_DAV";
-            buttonAddEmp_DAV.Size = new Size(94, 29);
+            buttonAddEmp_DAV.Size = new Size(107, 34);
             buttonAddEmp_DAV.TabIndex = 21;
             buttonAddEmp_DAV.Text = "Добавить";
             toolTipAddEmp_DAV.SetToolTip(buttonAddEmp_DAV, "Создать карточку нового сотрудника");
@@ -103,7 +104,7 @@
             label7.AutoSize = true;
             label7.Location = new Point(16, 227);
             label7.Name = "label7";
-            label7.Size = new Size(50, 20);
+            label7.Size = new Size(64, 25);
             label7.TabIndex = 20;
             label7.Text = "Отдел";
             // 
@@ -112,7 +113,7 @@
             label6.AutoSize = true;
             label6.Location = new Point(16, 194);
             label6.Name = "label6";
-            label6.Size = new Size(73, 20);
+            label6.Size = new Size(92, 25);
             label6.TabIndex = 19;
             label6.Text = "Зарплата";
             // 
@@ -121,7 +122,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(16, 161);
             label5.Name = "label5";
-            label5.Size = new Size(43, 20);
+            label5.Size = new Size(56, 25);
             label5.TabIndex = 18;
             label5.Text = "Стаж";
             // 
@@ -130,7 +131,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(16, 128);
             label4.Name = "label4";
-            label4.Size = new Size(116, 20);
+            label4.Size = new Size(146, 25);
             label4.TabIndex = 17;
             label4.Text = "Дата рождения";
             // 
@@ -139,7 +140,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(16, 95);
             label3.Name = "label3";
-            label3.Size = new Size(72, 20);
+            label3.Size = new Size(93, 25);
             label3.TabIndex = 16;
             label3.Text = "Отчество";
             // 
@@ -148,7 +149,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(16, 62);
             label2.Name = "label2";
-            label2.Size = new Size(39, 20);
+            label2.Size = new Size(49, 25);
             label2.TabIndex = 15;
             label2.Text = "Имя";
             // 
@@ -157,57 +158,57 @@
             labelLastName_DAV.AutoSize = true;
             labelLastName_DAV.Location = new Point(16, 29);
             labelLastName_DAV.Name = "labelLastName_DAV";
-            labelLastName_DAV.Size = new Size(73, 20);
+            labelLastName_DAV.Size = new Size(91, 25);
             labelLastName_DAV.TabIndex = 14;
             labelLastName_DAV.Text = "Фамилия";
             // 
             // textBoxDepartment_DAV
             // 
-            textBoxDepartment_DAV.Location = new Point(134, 224);
+            textBoxDepartment_DAV.Location = new Point(164, 224);
             textBoxDepartment_DAV.Name = "textBoxDepartment_DAV";
-            textBoxDepartment_DAV.Size = new Size(125, 27);
+            textBoxDepartment_DAV.Size = new Size(125, 32);
             textBoxDepartment_DAV.TabIndex = 13;
             // 
             // textBoxSalary_DAV
             // 
-            textBoxSalary_DAV.Location = new Point(134, 191);
+            textBoxSalary_DAV.Location = new Point(164, 191);
             textBoxSalary_DAV.Name = "textBoxSalary_DAV";
-            textBoxSalary_DAV.Size = new Size(125, 27);
+            textBoxSalary_DAV.Size = new Size(125, 32);
             textBoxSalary_DAV.TabIndex = 12;
             // 
             // textBoxExpYears_DAV
             // 
-            textBoxExpYears_DAV.Location = new Point(134, 158);
+            textBoxExpYears_DAV.Location = new Point(164, 158);
             textBoxExpYears_DAV.Name = "textBoxExpYears_DAV";
-            textBoxExpYears_DAV.Size = new Size(125, 27);
+            textBoxExpYears_DAV.Size = new Size(125, 32);
             textBoxExpYears_DAV.TabIndex = 11;
             // 
             // textBoxBirthDate_DAV
             // 
-            textBoxBirthDate_DAV.Location = new Point(134, 125);
+            textBoxBirthDate_DAV.Location = new Point(164, 125);
             textBoxBirthDate_DAV.Name = "textBoxBirthDate_DAV";
-            textBoxBirthDate_DAV.Size = new Size(125, 27);
+            textBoxBirthDate_DAV.Size = new Size(125, 32);
             textBoxBirthDate_DAV.TabIndex = 10;
             // 
             // textBoxMiddleName_DAV
             // 
-            textBoxMiddleName_DAV.Location = new Point(134, 92);
+            textBoxMiddleName_DAV.Location = new Point(164, 92);
             textBoxMiddleName_DAV.Name = "textBoxMiddleName_DAV";
-            textBoxMiddleName_DAV.Size = new Size(125, 27);
+            textBoxMiddleName_DAV.Size = new Size(125, 32);
             textBoxMiddleName_DAV.TabIndex = 8;
             // 
             // textBoxFirstName_DAV
             // 
-            textBoxFirstName_DAV.Location = new Point(134, 59);
+            textBoxFirstName_DAV.Location = new Point(164, 59);
             textBoxFirstName_DAV.Name = "textBoxFirstName_DAV";
-            textBoxFirstName_DAV.Size = new Size(125, 27);
+            textBoxFirstName_DAV.Size = new Size(125, 32);
             textBoxFirstName_DAV.TabIndex = 9;
             // 
             // textBoxLastName_DAV
             // 
-            textBoxLastName_DAV.Location = new Point(134, 26);
+            textBoxLastName_DAV.Location = new Point(164, 26);
             textBoxLastName_DAV.Name = "textBoxLastName_DAV";
-            textBoxLastName_DAV.Size = new Size(125, 27);
+            textBoxLastName_DAV.Size = new Size(125, 32);
             textBoxLastName_DAV.TabIndex = 7;
             // 
             // FormAddEmployee
